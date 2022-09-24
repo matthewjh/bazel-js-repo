@@ -1,0 +1,35 @@
+load("@aspect_rules_ts//ts:defs.bzl", "ts_project")
+load("@aspect_rules_js//js:defs.bzl", "js_binary")
+load("@npm//:defs.bzl", "npm_link_all_packages")
+load("@aspect_rules_js//npm:defs.bzl", "npm_package")
+
+npm_link_all_packages(name = "node_modules")
+
+ts_project(
+    name = "ts",
+    srcs = ["index.ts"],
+    declaration = True,
+    composite = True,
+    deps = [
+        ":node_modules/@myorg/a",
+        "//:node_modules/@angular/common",
+        "//:node_modules/@angular/core",
+        "//:node_modules/@angular/platform-browser",
+        "//:node_modules/rxjs",
+        "//:node_modules/zone.js",
+        "//:node_modules/ag-grid-community",
+        "//:node_modules/ag-grid-angular",
+        "//:node_modules/ag-grid-enterprise",
+        "//:node_modules/highcharts",
+    ],
+    supports_workers = False
+)
+
+npm_package(
+    name = "b",
+    srcs = [
+        "ts"
+    ],
+    visibility = ["//visibility:public"],
+)
+

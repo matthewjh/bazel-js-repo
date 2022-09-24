@@ -1,0 +1,6 @@
+{
+  "name": "@myorg/c",
+  "dependencies": {
+    "@myorg/b": "workspace:*"
+  }
+}

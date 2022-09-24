@@ -1,0 +1,4 @@
+node_modules
+libs/a/node_modules
+libs/b/node_modules
+libs/c/node_modules
