@@ -1,2 +1,5 @@
 node_modules
-bazel-*
+bazel-bazel-js-repro
+bazel-bin
+bazel-out
+bazel-testlogs
